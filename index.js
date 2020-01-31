@@ -18,7 +18,11 @@ try {
     const gitHubSha = process.env.GITHUB_SHA;
     const gitHubToken = core.getInput("github-token");
 
+    console.log("gitHubToken", gitHubToken);
+
     const octokit = new github.GitHub(gitHubToken);
+
+    console.log("octokit", octokit);
 
     let check = {
         owner: gitHubRepoOwner,
