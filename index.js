@@ -8,7 +8,7 @@ try {
 
     // Get the JSON webhook payload for the event that triggered the workflow
     const payload = JSON.stringify(github.context.payload, undefined, 2)
-    console.log(`The event payload: ${payload}`);
+
 
     // Pull request
     const pr = payload.pull_request;
@@ -16,8 +16,9 @@ try {
     // Body
     const body = pr.body;
 
-    console.log("pr", pr);
-    console.log("body", body);
+    console.log(`The event payload: ${pr}`);
+    console.log("----------------------------");
+    console.log(`The event body: ${body}`);
 
     // Check if any Tasks are open
     const hasOpenTasks = pr.body.match(/\[\]|\[ \]/);
