@@ -21,8 +21,6 @@ try {
 
     const octokit = new github.GitHub(gitHubToken);
 
-    console.log("octokit", octokit);
-
     let check = {
         owner: gitHubRepoOwner,
         repo: gitHubRepoName,
@@ -30,7 +28,6 @@ try {
         head_sha: pr.head.sha,
         started_at: startTime,
         head_sha: gitHubSha,
-        conclusion: "failure",
         status: 'in_progress',
         output: {
             title: 'Outstanding tasks',
