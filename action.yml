@@ -1,13 +1,13 @@
 name: 'Deny open tasks'
 description: 'Checks if any task is open and denies PRs in case there are some'
-inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: false
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+# inputs:
+#   who-to-greet:  # id of input
+#     description: 'Who to greet'
+#     required: false
+#     default: 'World'
+# outputs:
+#   time: # id of output
+#     description: 'The time we greeted you'
 runs:
   using: 'node12'
   main: 'index.js'

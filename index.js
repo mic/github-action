@@ -48,8 +48,9 @@ try {
     console.log("hasOpenTasks", hasOpenTasks);
 
     core.setOutput("time", new Date().toTimeString());
-
+    console.log("sending check", check);
     octokit.checks.create(check);
+    console.log("send check", check);
 
 } catch (error) {
     core.setFailed(error.message);
