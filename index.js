@@ -48,7 +48,7 @@ try {
         check.output.summary = 'All tasks have been completed';
     };
 
-    return github.checks.create(context.repo(check));
+    // return github.checks.create(context.repo(check));
 } catch (error) {
     core.setFailed(error.message);
 }
