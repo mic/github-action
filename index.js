@@ -11,7 +11,7 @@ try {
 
 
     // Pull request
-    const pr = payload.pull_request;
+    const pr = github.context.payload.pull_request;
 
     // Body
     const body = pr.body;
