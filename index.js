@@ -18,10 +18,6 @@ try {
     const gitHubSha = process.env.GITHUB_SHA;
     const gitHubToken = core.getInput("github-token");
 
-    console.log("gitHubRepoOwner", gitHubRepoOwner);
-    console.log("gitHubRepoName", gitHubRepoName);
-    console.log("gitHubSha", gitHubSha);
-    console.log("gitHubToken", gitHubToken);
 
     const octokit = new github.GitHub(gitHubToken);
 
@@ -34,7 +30,7 @@ try {
         head_sha: pr.head.sha,
         started_at: startTime,
         head_sha: gitHubSha,
-        conclusion: "failed",
+        conclusion: "failure",
         status: 'in_progress',
         output: {
             title: 'Outstanding tasks',
