@@ -1,0 +1,23 @@
+{
+  "name": "tasklist_completed",
+  "version": "1.0.0",
+  "description": "Adds checkboxes to a pull-request comment ",
+  "main": "index.js",
+  "dependencies": {
+    "fs": "0.0.1-security"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mic/github-action.git"
+  },
+  "author": "Michal Wlodkowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mic/github-action/issues"
+  },
+  "homepage": "https://github.com/mic/github-action#readme"
+}
