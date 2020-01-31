@@ -52,7 +52,8 @@ try {
 
     if (hasOpenTasks != null) {
         // process.exit(1);
-        core.setFailed("Please make sure to check all checkboxes!");
+        //core.setFailed("Please make sure to check all checkboxes!");
+        console.log("Failure")
     } else {
         // octokit.repos.createStatus({
         //     owner: gitHubRepoOwner,
