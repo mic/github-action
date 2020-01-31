@@ -3,8 +3,6 @@ const github = require('@actions/github');
 const fs = require('fs');
 
 try {
-    const tasks = fs.readFileSync('./tasklist.txt', 'utf8')
-    console.log(tasks)
 
     // `who-to-greet` input defined in action metadata file
     const pathToTasklist = core.getInput('tasklist');
