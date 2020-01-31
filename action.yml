@@ -1,9 +1,9 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Deny open tasks'
+description: 'Checks if any task is open and denies PRs in case there are some'
 inputs:
   who-to-greet:  # id of input
     description: 'Who to greet'
-    required: true
+    required: false
     default: 'World'
 outputs:
   time: # id of output
