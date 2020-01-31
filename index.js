@@ -10,8 +10,19 @@ try {
     const payload = JSON.stringify(github.context.payload, undefined, 2)
     console.log(`The event payload: ${payload}`);
 
+    // Pull request
+    const pr = payload.pull_request;
+
+    // Body
+    const body = pr.body;
+
+    console.log("pr", pr);
+    console.log("body", body);
+
     // Check if any Tasks are open
-    const hasOpenTasks = payload.pull_request.body.match(/\[\]|\[ \]/);
+    const hasOpenTasks = pr.body.match(/\[\]|\[ \]/);
+
+
     console.log("hasOpenTasks", hasOpenTasks);
 
     let check = {
