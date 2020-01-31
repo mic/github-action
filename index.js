@@ -46,12 +46,9 @@ try {
         check.output.summary = 'All tasks have been completed';
     };
 
-    console.log("hasOpenTasks", hasOpenTasks);
 
     core.setOutput("time", new Date().toTimeString());
-    console.log("sending check", check);
-    octokit.checks.create(check);
-    console.log("send check", check);
+    return octokit.checks.create(check);
 
 } catch (error) {
     core.setFailed(error.message);
