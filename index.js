@@ -29,7 +29,6 @@ try {
         started_at: startTime,
         head_sha: gitHubSha,
         status: 'in_progress',
-        conclusion: 'failure',
         output: {
             title: 'Outstanding tasks',
             summary: 'Tasks still remain to be completed',
