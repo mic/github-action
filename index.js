@@ -28,7 +28,7 @@ try {
         head_sha: pr.head.sha,
         started_at: startTime,
         head_sha: gitHubSha,
-        status: 'completed',
+        status: 'in_progress',
         conclusion: 'failure',
         output: {
             title: 'Outstanding tasks',
@@ -53,6 +53,17 @@ try {
     if (hasOpenTasks != null) {
         // process.exit(1);
         core.setFailed("Please make sure to check all checkboxes!");
+    } else {
+        // octokit.repos.createStatus({
+        //     owner: gitHubRepoOwner,
+        //     repo: gitHubRepoName,
+        //     sha: gitHubSha,
+        //     context: 'continuous-integration/travis-ci/push',
+        //     state: 'success',
+        //     // target_url  : 'https://your.url/',
+        //     description: 'All tasks have been completed'
+        // });
+        console.log("success")
     }
 
 
