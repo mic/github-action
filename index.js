@@ -3,34 +3,31 @@ const github = require('@actions/github');
 
 try {
 
-    const time = (new Date()).toTimeString();
     const startTime = (new Date).toISOString();
-    core.setOutput("time", time);
-
-    // Get the JSON webhook payload for the event that triggered the workflow
-    const payload = JSON.stringify(github.context.payload, undefined, 2)
-
 
     // Pull request
     const pr = github.context.payload.pull_request;
 
-    // Body
-    const body = pr.body;
-
-    console.log(`The event payload: ${pr}`);
-    console.log("----------------------------");
-    console.log(`The event body: ${body}`);
-
     // Check if any Tasks are open
     const hasOpenTasks = pr.body.match(/\[\]|\[ \]/);
 
+    const [
+        gitHubRepoOwner,
+        gitHubRepoName
+    ] = process.env.GITHUB_REPOSITORY.split("/");
+    const gitHubSha = process.env.GITHUB_SHA;
+    const gitHubToken = core.getInput("github-token");
 
-    console.log("hasOpenTasks", hasOpenTasks);
+    const octokit = new github.GitHub(gitHubToken);
 
     let check = {
+        owner: gitHubRepoOwner,
+        repo: gitHubRepoName,
         name: 'task-list-completed',
         head_sha: pr.head.sha,
         started_at: startTime,
+        head_sha: gitHubSha,
+        conclusion: "failed",
         status: 'in_progress',
         output: {
             title: 'Outstanding tasks',
@@ -48,7 +45,12 @@ try {
         check.output.summary = 'All tasks have been completed';
     };
 
-    // return github.checks.create(context.repo(check));
+    console.log("hasOpenTasks", hasOpenTasks);
+
+    core.setOutput("time", new Date().toTimeString());
+
+    octokit.checks.create(check);
+
 } catch (error) {
     core.setFailed(error.message);
 }
