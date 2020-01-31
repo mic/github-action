@@ -51,7 +51,8 @@ try {
     octokit.checks.create(check);
 
     if (hasOpenTasks != null) {
-        process.exit(1);
+        // process.exit(1);
+        core.setFailed("Please make sure to check all checkboxes!");
     }
 
 
