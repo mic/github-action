@@ -48,7 +48,12 @@ try {
 
 
     core.setOutput("time", new Date().toTimeString());
-    return octokit.checks.create(check);
+    octokit.checks.create(check);
+
+    if (hasOpenTasks != null) {
+        process.exit(1);
+    }
+
 
 } catch (error) {
     core.setFailed(error.message);
