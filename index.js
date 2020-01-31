@@ -11,7 +11,7 @@ try {
     console.log(`The event payload: ${payload}`);
 
     // Check if any Tasks are open
-    const hasOpenTasks = payload.body.match(/\[\]|\[ \]/);
+    const hasOpenTasks = payload.pull_request.body.match(/\[\]|\[ \]/);
     console.log("hasOpenTasks", hasOpenTasks);
 
     let check = {
